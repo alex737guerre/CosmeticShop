@@ -1489,3 +1489,33 @@ Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-15 12:29:19 +0100
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-15 12:29:19 +0100
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-15 12:36:13 +0100
+Processing by AboutController#index as HTML
+  Rendered about/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 68ms (Views: 58.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-03-15 12:36:13 +0100
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-03-15 12:36:13 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-03-15 12:36:13 +0100
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-15 12:36:14 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-03-15 12:36:14 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-03-15 12:36:14 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-03-15 12:36:14 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-15 12:36:14 +0100
