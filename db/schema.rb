@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20160329091755) do
 
   create_table "suppliers", force: true do |t|
-    t.string   "name",       null: false
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

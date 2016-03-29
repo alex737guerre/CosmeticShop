@@ -1,0 +1,15 @@
+<% if @supplier.errors.any? %>
+  <div id="errorExplanation">
+  <h2><%= pluralize(@supplier.errors.count, "error") %> prohibited this supplier from being saved:</h2>
+    <ul>
+      <% @supplier.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="field">
+  <p><label for="supplier_name">Name</label><br/>
+  <%= text_field 'supplier', 'name' %></p>
+</div>

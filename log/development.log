@@ -1588,3 +1588,1612 @@ Migrating to CreateSuppliers (20160329091755)
   [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160329091755')
   [1m[36m (51.4ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (139.0ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (201.9ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateSuppliers (20160329091755)
+  [1m[35m (83.6ms)[0m  CREATE TABLE `suppliers` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160329091755')
+  [1m[36m (40.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mSupplier Load (0.6ms)[0m  [1mSELECT `suppliers`.* FROM `suppliers`[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSupplier Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `suppliers`  WHERE `suppliers`.`name` = BINARY 'Dagoberto' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `suppliers` (`created_at`, `name`, `updated_at`) VALUES ('2016-03-29 10:12:52', 'Dagoberto', '2016-03-29 10:12:52')
+  [1m[36m (51.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mSupplier Load (0.5ms)[0m  SELECT `suppliers`.* FROM `suppliers`
+  [1m[36mSupplier Load (0.6ms)[0m  [1mSELECT  `suppliers`.* FROM `suppliers`  WHERE `suppliers`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSupplier Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `suppliers`  WHERE `suppliers`.`name` = BINARY 'Dagoberto' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSupplier Exists (0.5ms)[0m  SELECT  1 AS one FROM `suppliers`  WHERE `suppliers`.`name` = BINARY '' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSupplier Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `suppliers`  WHERE `suppliers`.`name` = BINARY 'P' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSupplier Exists (0.3ms)[0m  SELECT  1 AS one FROM `suppliers`  WHERE `suppliers`.`name` = BINARY '' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-29 12:34:11 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by AboutController#index as HTML
+  Rendered about/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 665ms (Views: 640.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin/supplier_controller.css?body=1" for 127.0.0.1 at 2016-03-29 12:34:12 +0200
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-03-29 12:34:12 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-03-29 12:34:12 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-03-29 12:34:12 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-03-29 12:34:12 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-03-29 12:34:12 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-03-29 12:34:12 +0200
+
+
+Started GET "/assets/admin/supplier_controller.js?body=1" for 127.0.0.1 at 2016-03-29 12:34:12 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-29 12:34:12 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-29 12:34:12 +0200
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 12:34:22 +0200
+
+ActionController::RoutingError (uninitialized constant Admin::SupplierController):
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:240:in `const_get'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:240:in `block in constantize'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:236:in `each'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:236:in `inject'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:236:in `constantize'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:76:in `controller_reference'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:66:in `controller'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:44:in `call'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.1) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alex737guerre/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/alex737guerre/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/alex737guerre/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (27.1ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (55.8ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 12:34:22 +0200
+
+ActionController::RoutingError (uninitialized constant Admin::SupplierController):
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:240:in `const_get'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:240:in `block in constantize'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:236:in `each'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:236:in `inject'
+  activesupport (4.1.1) lib/active_support/inflector/methods.rb:236:in `constantize'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:76:in `controller_reference'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:66:in `controller'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:44:in `call'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.1) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alex737guerre/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/alex737guerre/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/alex737guerre/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.5ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (21.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-29 12:44:01 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by AboutController#index as HTML
+  Rendered about/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 303ms (Views: 294.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin/supplier.css?body=1" for 127.0.0.1 at 2016-03-29 12:44:01 +0200
+
+
+Started GET "/assets/admin/supplier.js?body=1" for 127.0.0.1 at 2016-03-29 12:44:01 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-03-29 12:44:01 +0200
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-03-29 12:44:01 +0200
+
+
+Started GET "/assets/admin/supplier_controller.css?body=1" for 127.0.0.1 at 2016-03-29 12:44:01 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-03-29 12:44:01 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-03-29 12:44:01 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-03-29 12:44:01 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-03-29 12:44:01 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-29 12:44:01 +0200
+
+
+Started GET "/assets/admin/supplier_controller.js?body=1" for 127.0.0.1 at 2016-03-29 12:44:01 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-29 12:44:01 +0200
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 12:44:07 +0200
+Processing by Admin::SupplierController#index as HTML
+  Rendered admin/supplier/_supplier.html.erb (0.0ms)
+  Rendered admin/supplier/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 48ms (Views: 47.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 12:44:25 +0200
+Processing by Admin::SupplierController#new as HTML
+  Rendered admin/supplier/_form.html.erb (11.2ms)
+  Rendered admin/supplier/new.html.erb within layouts/application (14.2ms)
+Completed 500 Internal Server Error in 18ms
+
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <% if @supplier.errors.any? %>
+    2:   <div id="errorExplanation">
+    3:   <h2><%= pluralize(@supplier.errors.count, "error") %> prohibited this supplier from being saved:</h2>
+    4:     <ul>
+  app/views/admin/supplier/_form.html.erb:1:in `_app_views_admin_supplier__form_html_erb___3692259653182380235_70102765477780'
+  app/views/admin/supplier/new.html.erb:2:in `block in _app_views_admin_supplier_new_html_erb___4353076714066772524_70102765365940'
+  app/views/admin/supplier/new.html.erb:1:in `_app_views_admin_supplier_new_html_erb___4353076714066772524_70102765365940'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.4ms)
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 12:44:25 +0200
+Processing by Admin::SupplierController#new as HTML
+  Rendered admin/supplier/_form.html.erb (1.2ms)
+  Rendered admin/supplier/new.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <% if @supplier.errors.any? %>
+    2:   <div id="errorExplanation">
+    3:   <h2><%= pluralize(@supplier.errors.count, "error") %> prohibited this supplier from being saved:</h2>
+    4:     <ul>
+  app/views/admin/supplier/_form.html.erb:1:in `_app_views_admin_supplier__form_html_erb___3692259653182380235_70102766742380'
+  app/views/admin/supplier/new.html.erb:2:in `block in _app_views_admin_supplier_new_html_erb___4353076714066772524_70102766711760'
+  app/views/admin/supplier/new.html.erb:1:in `_app_views_admin_supplier_new_html_erb___4353076714066772524_70102766711760'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (26.6ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (39.5ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 12:47:01 +0200
+
+ActionController::RoutingError (uninitialized constant Admin::AuthenticatedController):
+  app/controllers/admin/supplier_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.8ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.8ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (26.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-29 12:47:15 +0200
+Processing by AboutController#index as HTML
+  Rendered about/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 61ms (Views: 59.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-03-29 12:47:15 +0200
+
+
+Started GET "/assets/admin/supplier.css?body=1" for 127.0.0.1 at 2016-03-29 12:47:15 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-03-29 12:47:15 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-03-29 12:47:15 +0200
+
+
+Started GET "/assets/admin/supplier_controller.css?body=1" for 127.0.0.1 at 2016-03-29 12:47:15 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-03-29 12:47:15 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-03-29 12:47:15 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-03-29 12:47:15 +0200
+
+
+Started GET "/assets/admin/supplier.js?body=1" for 127.0.0.1 at 2016-03-29 12:47:15 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-29 12:47:15 +0200
+
+
+Started GET "/assets/admin/supplier_controller.js?body=1" for 127.0.0.1 at 2016-03-29 12:47:15 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-29 12:47:15 +0200
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 12:47:16 +0200
+
+ActionController::RoutingError (uninitialized constant Admin::AuthenticatedController):
+  app/controllers/admin/supplier_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (16.5ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 12:47:16 +0200
+
+ActionController::RoutingError (uninitialized constant Admin::AuthenticatedController):
+  app/controllers/admin/supplier_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.6ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (21.3ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 12:48:00 +0200
+Processing by Admin::SupplierController#index as HTML
+Completed 500 Internal Server Error in 7ms
+
+NameError (undefined local variable or method `supplier' for #<Admin::SupplierController:0x000000021555c0>):
+  app/controllers/admin/supplier_controller.rb:47:in `index'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.1ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 12:48:02 +0200
+Processing by Admin::SupplierController#index as HTML
+Completed 500 Internal Server Error in 6ms
+
+NameError (undefined local variable or method `supplier' for #<Admin::SupplierController:0x007f8424f7f030>):
+  app/controllers/admin/supplier_controller.rb:47:in `index'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.7ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.6ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 12:48:02 +0200
+Processing by Admin::SupplierController#index as HTML
+Completed 500 Internal Server Error in 3ms
+
+NameError (undefined local variable or method `supplier' for #<Admin::SupplierController:0x007f84251e8218>):
+  app/controllers/admin/supplier_controller.rb:47:in `index'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.0ms)
+  [1m[36m (79.2ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (189.2ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateSuppliers (20160329091755)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateSuppliers (20160329091755)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateSuppliers (20160329091755)
+  [1m[35m (83.5ms)[0m  CREATE TABLE `supplier` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160329091755')
+  [1m[36m (38.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-29 12:51:04 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by AboutController#index as HTML
+  Rendered about/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 83ms (Views: 72.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-03-29 12:51:05 +0200
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-03-29 12:51:05 +0200
+
+
+Started GET "/assets/admin/supplier_controller.css?body=1" for 127.0.0.1 at 2016-03-29 12:51:05 +0200
+
+
+Started GET "/assets/admin/supplier.css?body=1" for 127.0.0.1 at 2016-03-29 12:51:05 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-03-29 12:51:05 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-03-29 12:51:05 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-03-29 12:51:05 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-03-29 12:51:05 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-29 12:51:05 +0200
+
+
+Started GET "/assets/admin/supplier.js?body=1" for 127.0.0.1 at 2016-03-29 12:51:05 +0200
+
+
+Started GET "/assets/admin/supplier_controller.js?body=1" for 127.0.0.1 at 2016-03-29 12:51:05 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-29 12:51:05 +0200
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 12:51:09 +0200
+Processing by Admin::SupplierController#index as HTML
+Completed 500 Internal Server Error in 3ms
+
+NameError (undefined local variable or method `supplier' for #<Admin::SupplierController:0x007ff6f50ac208>):
+  app/controllers/admin/supplier_controller.rb:47:in `index'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.5ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 12:51:09 +0200
+Processing by Admin::SupplierController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+NameError (undefined local variable or method `supplier' for #<Admin::SupplierController:0x007ff6f47a77c0>):
+  app/controllers/admin/supplier_controller.rb:47:in `index'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.9ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 12:52:27 +0200
+Processing by Admin::SupplierController#index as HTML
+Completed 500 Internal Server Error in 7ms
+
+NameError (undefined local variable or method `supplier' for #<Admin::SupplierController:0x007ff6f4320cb0>):
+  app/controllers/admin/supplier_controller.rb:47:in `index'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.5ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.7ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 12:52:42 +0200
+Processing by Admin::SupplierController#index as HTML
+  Rendered admin/supplier/_supplier.html.erb (0.0ms)
+  Rendered admin/supplier/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 51ms (Views: 50.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin/supplier_controller.css?body=1" for 127.0.0.1 at 2016-03-29 12:52:42 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-03-29 12:52:42 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-03-29 12:52:42 +0200
+
+
+Started GET "/assets/admin/supplier.css?body=1" for 127.0.0.1 at 2016-03-29 12:52:42 +0200
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-03-29 12:52:42 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-03-29 12:52:42 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-03-29 12:52:42 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-03-29 12:52:42 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-29 12:52:42 +0200
+
+
+Started GET "/assets/admin/supplier.js?body=1" for 127.0.0.1 at 2016-03-29 12:52:42 +0200
+
+
+Started GET "/assets/admin/supplier_controller.js?body=1" for 127.0.0.1 at 2016-03-29 12:52:42 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-29 12:52:42 +0200
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 12:52:47 +0200
+Processing by Admin::SupplierController#new as HTML
+Completed 500 Internal Server Error in 6ms
+
+NameError (undefined local variable or method `supplier' for #<Admin::SupplierController:0x007ff6f50493b0>):
+  app/controllers/admin/supplier_controller.rb:3:in `new'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.1ms)
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 12:52:47 +0200
+Processing by Admin::SupplierController#new as HTML
+Completed 500 Internal Server Error in 3ms
+
+NameError (undefined local variable or method `supplier' for #<Admin::SupplierController:0x007ff6f4f9cdb8>):
+  app/controllers/admin/supplier_controller.rb:3:in `new'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.9ms)
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 12:57:46 +0200
+Processing by Admin::SupplierController#new as HTML
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `require_user' for #<Admin::SupplierController:0x007ff6f44706d8>):
+  activesupport (4.1.1) lib/active_support/callbacks.rb:424:in `block in make_lambda'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:160:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:160:in `block in halting'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:229:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:86:in `call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.1) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.1) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.1) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.1) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.1) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.1) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.1) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.1) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.1) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.1) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.1) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.1) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alex737guerre/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/alex737guerre/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/alex737guerre/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.0ms)
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 12:58:26 +0200
+Processing by Admin::SupplierController#new as HTML
+Completed 500 Internal Server Error in 5ms
+
+NameError (undefined local variable or method `supplier' for #<Admin::SupplierController:0x00000004012788>):
+  app/controllers/admin/supplier_controller.rb:3:in `new'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 12:59:50 +0200
+Processing by Admin::SupplierController#new as HTML
+Completed 500 Internal Server Error in 7ms
+
+NameError (undefined local variable or method `supplier' for #<Admin::SupplierController:0x00000003d24850>):
+  app/controllers/admin/supplier_controller.rb:3:in `new'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (29.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-29 13:01:48 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by AboutController#index as HTML
+  Rendered about/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 80ms (Views: 71.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-03-29 13:01:48 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-03-29 13:01:48 +0200
+
+
+Started GET "/assets/admin/supplier.css?body=1" for 127.0.0.1 at 2016-03-29 13:01:48 +0200
+
+
+Started GET "/assets/admin/supplier_controller.css?body=1" for 127.0.0.1 at 2016-03-29 13:01:48 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-03-29 13:01:48 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-03-29 13:01:48 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-03-29 13:01:48 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-03-29 13:01:48 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-29 13:01:48 +0200
+
+
+Started GET "/assets/admin/supplier.js?body=1" for 127.0.0.1 at 2016-03-29 13:01:48 +0200
+
+
+Started GET "/assets/admin/supplier_controller.js?body=1" for 127.0.0.1 at 2016-03-29 13:01:48 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-29 13:01:48 +0200
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 13:01:52 +0200
+Processing by Admin::SupplierController#index as HTML
+Completed 500 Internal Server Error in 5ms
+
+NameError (undefined local variable or method `supplier' for #<Admin::SupplierController:0x007fae4cbc80c0>):
+  app/controllers/admin/supplier_controller.rb:47:in `index'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.8ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 13:01:52 +0200
+Processing by Admin::SupplierController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+NameError (undefined local variable or method `supplier' for #<Admin::SupplierController:0x00000002dcf918>):
+  app/controllers/admin/supplier_controller.rb:47:in `index'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.0ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 13:02:30 +0200
+Processing by Admin::SupplierController#index as HTML
+  Rendered admin/supplier/_supplier.html.erb (0.0ms)
+  Rendered admin/supplier/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 45ms (Views: 44.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin/supplier.css?body=1" for 127.0.0.1 at 2016-03-29 13:02:30 +0200
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-03-29 13:02:30 +0200
+
+
+Started GET "/assets/admin/supplier_controller.css?body=1" for 127.0.0.1 at 2016-03-29 13:02:30 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-03-29 13:02:30 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-03-29 13:02:30 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-03-29 13:02:30 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-03-29 13:02:30 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-03-29 13:02:30 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-29 13:02:30 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-29 13:02:30 +0200
+
+
+Started GET "/assets/admin/supplier_controller.js?body=1" for 127.0.0.1 at 2016-03-29 13:02:30 +0200
+
+
+Started GET "/assets/admin/supplier.js?body=1" for 127.0.0.1 at 2016-03-29 13:02:30 +0200
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 13:02:35 +0200
+Processing by Admin::SupplierController#new as HTML
+Completed 500 Internal Server Error in 4ms
+
+NameError (undefined local variable or method `supplier' for #<Admin::SupplierController:0x007fae4c86c9f8>):
+  app/controllers/admin/supplier_controller.rb:3:in `new'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.8ms)
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 13:02:35 +0200
+Processing by Admin::SupplierController#new as HTML
+Completed 500 Internal Server Error in 3ms
+
+NameError (undefined local variable or method `supplier' for #<Admin::SupplierController:0x007fae4cb3fbf8>):
+  app/controllers/admin/supplier_controller.rb:3:in `new'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.5ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 13:02:48 +0200
+Processing by Admin::SupplierController#index as HTML
+Completed 500 Internal Server Error in 3ms
+
+NameError (undefined local variable or method `supplier' for #<Admin::SupplierController:0x007fae4cd8c550>):
+  app/controllers/admin/supplier_controller.rb:47:in `index'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.3ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 13:06:54 +0200
+Processing by Admin::SupplierController#index as HTML
+  [1m[35mSupplier Load (0.6ms)[0m  SELECT `suppliers`.* FROM `suppliers`
+Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SELECT `suppliers`.* FROM `suppliers`
+  Rendered admin/supplier/index.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 9ms
+
+ActionView::Template::Error (Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SELECT `suppliers`.* FROM `suppliers`):
+     5:     <th>Delete</th>
+     6:   </tr>
+     7: 
+     8:   <%= render :partial => 'supplier', :collection => @suppliers %>
+     9: </table>
+    10: 
+    11: <p><%= link_to 'Add a new supplier', :action => 'new' %></p>
+  app/views/admin/supplier/index.html.erb:8:in `_app_views_admin_supplier_index_html_erb___434535410524068225_34439580'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.3ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 17:05:41 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Admin::SupplierController#index as HTML
+  [1m[35mSupplier Load (0.4ms)[0m  SELECT `suppliers`.* FROM `suppliers`
+Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SELECT `suppliers`.* FROM `suppliers`
+  Rendered admin/supplier/index.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 21ms
+
+ActionView::Template::Error (Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SELECT `suppliers`.* FROM `suppliers`):
+     5:     <th>Delete</th>
+     6:   </tr>
+     7: 
+     8:   <%= render :partial => 'supplier', :collection => @suppliers %>
+     9: </table>
+    10: 
+    11: <p><%= link_to 'Add a new supplier', :action => 'new' %></p>
+  app/views/admin/supplier/index.html.erb:8:in `_app_views_admin_supplier_index_html_erb___224575506568960275_32659720'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.1ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 17:05:43 +0200
+Processing by Admin::SupplierController#index as HTML
+  [1m[36mSupplier Load (0.6ms)[0m  [1mSELECT `suppliers`.* FROM `suppliers`[0m
+Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SELECT `suppliers`.* FROM `suppliers`
+  Rendered admin/supplier/index.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SELECT `suppliers`.* FROM `suppliers`):
+     5:     <th>Delete</th>
+     6:   </tr>
+     7: 
+     8:   <%= render :partial => 'supplier', :collection => @suppliers %>
+     9: </table>
+    10: 
+    11: <p><%= link_to 'Add a new supplier', :action => 'new' %></p>
+  app/views/admin/supplier/index.html.erb:8:in `_app_views_admin_supplier_index_html_erb___224575506568960275_32659720'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (8.8ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 17:05:43 +0200
+Processing by Admin::SupplierController#index as HTML
+  [1m[35mSupplier Load (0.7ms)[0m  SELECT `suppliers`.* FROM `suppliers`
+Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SELECT `suppliers`.* FROM `suppliers`
+  Rendered admin/supplier/index.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SELECT `suppliers`.* FROM `suppliers`):
+     5:     <th>Delete</th>
+     6:   </tr>
+     7: 
+     8:   <%= render :partial => 'supplier', :collection => @suppliers %>
+     9: </table>
+    10: 
+    11: <p><%= link_to 'Add a new supplier', :action => 'new' %></p>
+  app/views/admin/supplier/index.html.erb:8:in `_app_views_admin_supplier_index_html_erb___224575506568960275_32659720'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-03-29 17:06:34 +0200
+Processing by AboutController#index as HTML
+  Rendered about/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 88ms (Views: 87.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-03-29 17:06:34 +0200
+
+
+Started GET "/assets/admin/supplier.css?body=1" for 127.0.0.1 at 2016-03-29 17:06:34 +0200
+
+
+Started GET "/assets/admin/supplier_controller.css?body=1" for 127.0.0.1 at 2016-03-29 17:06:34 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-03-29 17:06:34 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-03-29 17:06:34 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-03-29 17:06:34 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-03-29 17:06:34 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-03-29 17:06:34 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-29 17:06:34 +0200
+
+
+Started GET "/assets/admin/supplier.js?body=1" for 127.0.0.1 at 2016-03-29 17:06:34 +0200
+
+
+Started GET "/assets/admin/supplier_controller.js?body=1" for 127.0.0.1 at 2016-03-29 17:06:34 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-29 17:06:34 +0200
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 17:06:36 +0200
+Processing by Admin::SupplierController#index as HTML
+  Rendered admin/supplier/_supplier.html.erb (0.0ms)
+  Rendered admin/supplier/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 40ms (Views: 39.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 17:06:42 +0200
+Processing by Admin::SupplierController#new as HTML
+Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SHOW FULL FIELDS FROM `suppliers`
+Completed 500 Internal Server Error in 2ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SHOW FULL FIELDS FROM `suppliers`):
+  app/controllers/admin/supplier_controller.rb:4:in `new'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.3ms)
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 17:06:42 +0200
+Processing by Admin::SupplierController#new as HTML
+Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SHOW FULL FIELDS FROM `suppliers`
+Completed 500 Internal Server Error in 1ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SHOW FULL FIELDS FROM `suppliers`):
+  app/controllers/admin/supplier_controller.rb:4:in `new'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.9ms)
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 17:06:54 +0200
+Processing by Admin::SupplierController#new as HTML
+Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SHOW FULL FIELDS FROM `suppliers`
+Completed 500 Internal Server Error in 2ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SHOW FULL FIELDS FROM `suppliers`):
+  app/controllers/admin/supplier_controller.rb:4:in `new'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.4ms)
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 17:06:54 +0200
+Processing by Admin::SupplierController#new as HTML
+Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SHOW FULL FIELDS FROM `suppliers`
+Completed 500 Internal Server Error in 2ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SHOW FULL FIELDS FROM `suppliers`):
+  app/controllers/admin/supplier_controller.rb:4:in `new'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.1ms)
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 17:07:48 +0200
+Processing by Admin::SupplierController#new as HTML
+Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SHOW FULL FIELDS FROM `suppliers`
+Completed 500 Internal Server Error in 2ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SHOW FULL FIELDS FROM `suppliers`):
+  app/controllers/admin/supplier_controller.rb:4:in `new'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.1ms)
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 17:07:48 +0200
+Processing by Admin::SupplierController#new as HTML
+Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SHOW FULL FIELDS FROM `suppliers`
+Completed 500 Internal Server Error in 1ms
+
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'eshop2_development.suppliers' doesn't exist: SHOW FULL FIELDS FROM `suppliers`):
+  app/controllers/admin/supplier_controller.rb:4:in `new'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.4ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.4ms)
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 17:10:36 +0200
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.1) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.1) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.1) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.1) lib/rails/engine.rb:514:in `call'
+  railties (4.1.1) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /home/alex737guerre/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/alex737guerre/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/alex737guerre/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.0ms)
+  [1m[36m (87.8ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (167.4ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateSuppliers (20160329091755)
+  [1m[35m (102.0ms)[0m  CREATE TABLE `suppliers` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160329091755')
+  [1m[36m (45.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 17:10:58 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Admin::SupplierController#new as HTML
+  Rendered admin/supplier/_form.html.erb (5.6ms)
+  Rendered admin/supplier/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 87ms (Views: 76.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-03-29 17:10:58 +0200
+
+
+Started GET "/assets/admin/supplier_controller.css?body=1" for 127.0.0.1 at 2016-03-29 17:10:58 +0200
+
+
+Started GET "/assets/admin/supplier.css?body=1" for 127.0.0.1 at 2016-03-29 17:10:58 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-03-29 17:10:58 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-03-29 17:10:58 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-03-29 17:10:58 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-03-29 17:10:58 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-03-29 17:10:58 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-29 17:10:58 +0200
+
+
+Started GET "/assets/admin/supplier.js?body=1" for 127.0.0.1 at 2016-03-29 17:10:58 +0200
+
+
+Started GET "/assets/admin/supplier_controller.js?body=1" for 127.0.0.1 at 2016-03-29 17:10:59 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-29 17:10:59 +0200
+
+
+Started POST "/admin/supplier/create" for 127.0.0.1 at 2016-03-29 17:11:04 +0200
+Processing by Admin::SupplierController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fqrsP9FSIz5NGXBB2psdlQQCh9FCVCTwz8S/BAbxfkw=", "supplier"=>{"name"=>"Loreal"}, "commit"=>"Create supplier"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSupplier Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `suppliers`  WHERE `suppliers`.`name` = BINARY 'Loreal' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `suppliers` (`created_at`, `name`, `updated_at`) VALUES ('2016-03-29 15:11:04', 'Loreal', '2016-03-29 15:11:04')
+  [1m[36m (82.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/admin/supplier
+Completed 302 Found in 94ms (ActiveRecord: 82.6ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 17:11:04 +0200
+Processing by Admin::SupplierController#index as HTML
+  Rendered admin/supplier/_supplier.html.erb (0.0ms)
+  Rendered admin/supplier/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 42ms (Views: 41.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-03-29 17:11:04 +0200
+
+
+Started GET "/assets/admin/supplier_controller.css?body=1" for 127.0.0.1 at 2016-03-29 17:11:04 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-03-29 17:11:04 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-03-29 17:11:04 +0200
+
+
+Started GET "/assets/admin/supplier.css?body=1" for 127.0.0.1 at 2016-03-29 17:11:04 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-03-29 17:11:04 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-03-29 17:11:04 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-03-29 17:11:04 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-29 17:11:04 +0200
+
+
+Started GET "/assets/admin/supplier.js?body=1" for 127.0.0.1 at 2016-03-29 17:11:04 +0200
+
+
+Started GET "/assets/admin/supplier_controller.js?body=1" for 127.0.0.1 at 2016-03-29 17:11:04 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-29 17:11:04 +0200
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 17:11:08 +0200
+Processing by Admin::SupplierController#index as HTML
+  Rendered admin/supplier/_supplier.html.erb (0.0ms)
+  Rendered admin/supplier/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 64ms (Views: 63.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/supplier/new" for 127.0.0.1 at 2016-03-29 17:11:11 +0200
+Processing by Admin::SupplierController#new as HTML
+  Rendered admin/supplier/_form.html.erb (1.4ms)
+  Rendered admin/supplier/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 50ms (Views: 49.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/supplier/create" for 127.0.0.1 at 2016-03-29 17:11:49 +0200
+Processing by Admin::SupplierController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fqrsP9FSIz5NGXBB2psdlQQCh9FCVCTwz8S/BAbxfkw=", "supplier"=>{"name"=>"Shiseido"}, "commit"=>"Create supplier"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSupplier Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `suppliers`  WHERE `suppliers`.`name` = BINARY 'Shiseido' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `suppliers` (`created_at`, `name`, `updated_at`) VALUES ('2016-03-29 15:11:49', 'Shiseido', '2016-03-29 15:11:49')
+  [1m[36m (79.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/admin/supplier
+Completed 302 Found in 83ms (ActiveRecord: 79.7ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 17:11:49 +0200
+Processing by Admin::SupplierController#index as HTML
+  Rendered admin/supplier/_supplier.html.erb (0.0ms)
+  Rendered admin/supplier/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 41ms (Views: 40.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-03-29 17:11:49 +0200
+
+
+Started GET "/assets/admin/supplier.css?body=1" for 127.0.0.1 at 2016-03-29 17:11:49 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-03-29 17:11:49 +0200
+
+
+Started GET "/assets/admin/supplier_controller.css?body=1" for 127.0.0.1 at 2016-03-29 17:11:49 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-03-29 17:11:49 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-03-29 17:11:49 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-03-29 17:11:49 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-03-29 17:11:49 +0200
+
+
+Started GET "/assets/admin/supplier.js?body=1" for 127.0.0.1 at 2016-03-29 17:11:49 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-29 17:11:49 +0200
+
+
+Started GET "/assets/admin/supplier_controller.js?body=1" for 127.0.0.1 at 2016-03-29 17:11:49 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-29 17:11:49 +0200
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 17:13:50 +0200
+Processing by Admin::SupplierController#index as HTML
+  Rendered admin/supplier/index.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (Missing partial admin/supplier/__supplier, application/__supplier with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/alex737guerre/projects/eshop2/app/views"
+):
+     5:     <th>Delete</th>
+     6:   </tr>
+     7: 
+     8:   <%= render :partial => '_supplier', :collection => @supplier %>
+     9: </table>
+    10: 
+    11: <p><%= link_to 'Add a new supplier', :action => 'new' %></p>
+  app/views/admin/supplier/index.html.erb:8:in `_app_views_admin_supplier_index_html_erb__1548862614861810930_36117700'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.1ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 17:13:59 +0200
+Processing by Admin::SupplierController#index as HTML
+  Rendered admin/supplier/_supplier.html.erb (0.0ms)
+  Rendered admin/supplier/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 68ms (Views: 67.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-03-29 17:13:59 +0200
+
+
+Started GET "/assets/admin/supplier_controller.css?body=1" for 127.0.0.1 at 2016-03-29 17:13:59 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-03-29 17:13:59 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-03-29 17:13:59 +0200
+
+
+Started GET "/assets/admin/supplier.css?body=1" for 127.0.0.1 at 2016-03-29 17:13:59 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-03-29 17:13:59 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-03-29 17:13:59 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-03-29 17:13:59 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-29 17:13:59 +0200
+
+
+Started GET "/assets/admin/supplier.js?body=1" for 127.0.0.1 at 2016-03-29 17:13:59 +0200
+
+
+Started GET "/assets/admin/supplier_controller.js?body=1" for 127.0.0.1 at 2016-03-29 17:13:59 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-29 17:13:59 +0200
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 17:28:22 +0200
+Processing by Admin::SupplierController#index as HTML
+  [1m[35mSupplier Load (0.2ms)[0m  SELECT `suppliers`.* FROM `suppliers`
+  Rendered admin/supplier/index.html.erb within layouts/application (9.8ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (undefined local variable or method `supplier' for #<#<Class:0x00000005af6a18>:0x007fa184415730>):
+    1: <table>
+    2:   <tr>
+    3:     <td><%= link_to supplier.name, :action => 'show', :id => supplier %></td>
+    4:   <td><%= link_to 'Edit', :action => 'edit', :id => supplier %></td>
+    5:   <td>
+    6:     <%= button_to 'Delete', { :action => 'destroy', :id => supplier },
+  app/views/admin/supplier/index.html.erb:3:in `_app_views_admin_supplier_index_html_erb__1548862614861810930_70165842665640'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (7.8ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 17:29:09 +0200
+Processing by Admin::SupplierController#index as HTML
+  Rendered admin/supplier/index.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 8ms
+
+ActionView::Template::Error (Missing partial admin/supplier/_supplier, application/_supplier with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/alex737guerre/projects/eshop2/app/views"
+):
+     5:     <th>Delete</th>
+     6:   </tr>
+     7: 
+     8:   <%= render :partial => 'supplier', :collection => @supplier %>
+     9: </table>
+    10: 
+    11: <p><%= link_to 'Add a new supplier', :action => 'new' %></p>
+  app/views/admin/supplier/index.html.erb:8:in `_app_views_admin_supplier_index_html_erb__1548862614861810930_70165840945540'
+
+
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/alex737guerre/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (15.0ms)
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 17:29:20 +0200
+Processing by Admin::SupplierController#index as HTML
+  Rendered admin/supplier/_supplier.html.erb (0.1ms)
+  Rendered admin/supplier/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 57ms (Views: 55.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-03-29 17:29:20 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-03-29 17:29:20 +0200
+
+
+Started GET "/assets/admin/supplier.css?body=1" for 127.0.0.1 at 2016-03-29 17:29:20 +0200
+
+
+Started GET "/assets/admin/supplier_controller.css?body=1" for 127.0.0.1 at 2016-03-29 17:29:20 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-03-29 17:29:20 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-03-29 17:29:20 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-03-29 17:29:20 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-03-29 17:29:20 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-29 17:29:20 +0200
+
+
+Started GET "/assets/admin/supplier.js?body=1" for 127.0.0.1 at 2016-03-29 17:29:20 +0200
+
+
+Started GET "/assets/admin/supplier_controller.js?body=1" for 127.0.0.1 at 2016-03-29 17:29:20 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-29 17:29:20 +0200
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 17:34:49 +0200
+Processing by Admin::SupplierController#index as HTML
+  [1m[36mSupplier Load (0.3ms)[0m  [1mSELECT `suppliers`.* FROM `suppliers`[0m
+  Rendered admin/supplier/_supplier.html.erb (5.2ms)
+  Rendered admin/supplier/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 86ms (Views: 85.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-03-29 17:34:49 +0200
+
+
+Started GET "/assets/admin/supplier.css?body=1" for 127.0.0.1 at 2016-03-29 17:34:49 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-03-29 17:34:49 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-03-29 17:34:49 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-03-29 17:34:49 +0200
+
+
+Started GET "/assets/admin/supplier_controller.css?body=1" for 127.0.0.1 at 2016-03-29 17:34:49 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-03-29 17:34:49 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-03-29 17:34:49 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-29 17:34:49 +0200
+
+
+Started GET "/assets/admin/supplier.js?body=1" for 127.0.0.1 at 2016-03-29 17:34:49 +0200
+
+
+Started GET "/assets/admin/supplier_controller.js?body=1" for 127.0.0.1 at 2016-03-29 17:34:49 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-29 17:34:49 +0200
+
+
+Started GET "/admin/supplier/edit?id=2" for 127.0.0.1 at 2016-03-29 17:34:59 +0200
+Processing by Admin::SupplierController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSupplier Load (0.4ms)[0m  SELECT  `suppliers`.* FROM `suppliers`  WHERE `suppliers`.`id` = 2 LIMIT 1
+  Rendered admin/supplier/_form.html.erb (0.3ms)
+  Rendered admin/supplier/edit.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 45ms (Views: 43.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/admin/supplier/update?id=2" for 127.0.0.1 at 2016-03-29 17:35:01 +0200
+Processing by Admin::SupplierController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fqrsP9FSIz5NGXBB2psdlQQCh9FCVCTwz8S/BAbxfkw=", "supplier"=>{"name"=>"Shiseido"}, "commit"=>"Update supplier", "id"=>"2"}
+  [1m[36mSupplier Load (0.2ms)[0m  [1mSELECT  `suppliers`.* FROM `suppliers`  WHERE `suppliers`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSupplier Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `suppliers`  WHERE (`suppliers`.`name` = BINARY 'Shiseido' AND `suppliers`.`id` != 2) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/admin/supplier/show/2
+Completed 302 Found in 5ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/supplier/show/2" for 127.0.0.1 at 2016-03-29 17:35:01 +0200
+Processing by Admin::SupplierController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSupplier Load (0.1ms)[0m  [1mSELECT  `suppliers`.* FROM `suppliers`  WHERE `suppliers`.`id` = 2 LIMIT 1[0m
+  Rendered admin/supplier/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 43ms (Views: 41.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-03-29 17:35:01 +0200
+
+
+Started GET "/assets/admin/supplier_controller.css?body=1" for 127.0.0.1 at 2016-03-29 17:35:01 +0200
+
+
+Started GET "/assets/admin/supplier.css?body=1" for 127.0.0.1 at 2016-03-29 17:35:01 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-03-29 17:35:01 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-03-29 17:35:01 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-03-29 17:35:01 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-03-29 17:35:01 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-03-29 17:35:01 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-29 17:35:01 +0200
+
+
+Started GET "/assets/admin/supplier.js?body=1" for 127.0.0.1 at 2016-03-29 17:35:01 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-29 17:35:01 +0200
+
+
+Started GET "/assets/admin/supplier_controller.js?body=1" for 127.0.0.1 at 2016-03-29 17:35:01 +0200
+
+
+Started GET "/admin/supplier/show/2" for 127.0.0.1 at 2016-03-29 17:35:29 +0200
+Processing by Admin::SupplierController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSupplier Load (0.2ms)[0m  SELECT  `suppliers`.* FROM `suppliers`  WHERE `suppliers`.`id` = 2 LIMIT 1
+  Rendered admin/supplier/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 63ms (Views: 60.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/about.css?body=1" for 127.0.0.1 at 2016-03-29 17:35:29 +0200
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-03-29 17:35:29 +0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-03-29 17:35:29 +0200
+
+
+Started GET "/assets/admin/supplier.css?body=1" for 127.0.0.1 at 2016-03-29 17:35:29 +0200
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-03-29 17:35:29 +0200
+
+
+Started GET "/assets/admin/supplier_controller.css?body=1" for 127.0.0.1 at 2016-03-29 17:35:29 +0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-03-29 17:35:29 +0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-03-29 17:35:29 +0200
+
+
+Started GET "/assets/about.js?body=1" for 127.0.0.1 at 2016-03-29 17:35:29 +0200
+
+
+Started GET "/assets/admin/supplier.js?body=1" for 127.0.0.1 at 2016-03-29 17:35:29 +0200
+
+
+Started GET "/assets/admin/supplier_controller.js?body=1" for 127.0.0.1 at 2016-03-29 17:35:29 +0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-03-29 17:35:29 +0200
+
+
+Started GET "/admin/supplier" for 127.0.0.1 at 2016-03-29 17:35:33 +0200
+Processing by Admin::SupplierController#index as HTML
+  [1m[36mSupplier Load (0.2ms)[0m  [1mSELECT `suppliers`.* FROM `suppliers`[0m
+  Rendered admin/supplier/_supplier.html.erb (3.2ms)
+  Rendered admin/supplier/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 63ms (Views: 61.7ms | ActiveRecord: 0.2ms)
